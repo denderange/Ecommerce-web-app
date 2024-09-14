@@ -1,0 +1,10 @@
+.header {
+	background-color: var(--color-violet);
+}
+
+.headerContent {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 27px 0px 28px 0px;
+}

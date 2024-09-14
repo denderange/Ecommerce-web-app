@@ -1,0 +1,24 @@
+.catalog {
+	padding-top: 48px;
+	padding-bottom: 48px;
+}
+
+.catalogTitle {
+	font-weight: var(--font-bold);
+	font-size: var(--text-3xl);
+	margin-bottom: 48px;
+	line-height: 56px;
+}
+
+.catalogList {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px 35px;
+	padding-bottom: 48px;
+}
+
+.btnShowMore {
+	display: block;
+	margin: 0px auto;
+	line-height: 22px;
+}

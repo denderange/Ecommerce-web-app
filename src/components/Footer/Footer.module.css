@@ -1,0 +1,21 @@
+.footer {
+	color: var(--color-gray-100);
+	background-color: var(--color-gray-900);
+	margin-top: auto;
+}
+
+.footerContent {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 27px 0px 28px 0px;
+}
+
+.footerLinksList {
+	display: flex;
+	gap: 40px;
+	align-items: center;
+	color: var(--color-white);
+	font-size: var(--text-s);
+	font-weight: var(--font-semibold);
+}

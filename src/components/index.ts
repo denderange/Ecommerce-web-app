@@ -1,0 +1,13 @@
+export { Header } from "./Header/Header";
+export { Logo } from "./Logo/Logo";
+export { NavBar } from "./NavBar/NavBar";
+export { Footer } from "./Footer/Footer";
+export { Hero } from "./Hero/Hero";
+export { LinkCart } from "./LinkCart/LinkCart";
+export { Catalog } from "./Catalog/Catalog";
+export { SearchInput } from "./SearchInput/SearchInput";
+export { ProductCard } from "./Product/ProductCard/ProductCard";
+export { ProductDetails } from "./Product/ProductDetails/ProductDetails";
+export { ButtonAddToCart } from "./Buttons/ButtonAddToCart/ButtonAddToCart";
+export { ButtonsCounter } from "./Buttons/ButtonsCounter/ButtonsCounter";
+export { FAQ } from "./FAQ/FAQ";

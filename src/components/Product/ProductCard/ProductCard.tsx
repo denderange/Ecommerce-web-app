@@ -23,7 +23,10 @@ export const ProductCard = ({ imagePath, productName, price }: Product) => {
 					<p className={styles.productText}>{productName}</p>
 					<span className={styles.productPrice}>${price}</span>
 				</div>
-				<ButtonAddToCart handleAddToCart={handleAddToCart} />
+				<ButtonAddToCart
+					handleAddToCart={handleAddToCart}
+					variant='icon'
+				/>
 				{/* <ButtonsCounter /> */}
 			</div>
 		</div>

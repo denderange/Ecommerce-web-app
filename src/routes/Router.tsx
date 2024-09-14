@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { Cart, Home, NotFound } from "../pages";
-// import { ProductDetails } from "../components";
+import { ProductDetails } from "../components";
 import { Layout } from "./Layout";
 
 const Router = () => {
@@ -16,6 +16,10 @@ const Router = () => {
 				<Route
 					path='/cart'
 					element={<Cart />}
+				/>
+				<Route
+					path='/product/:id'
+					element={<ProductDetails />}
 				/>
 				<Route
 					path='*'

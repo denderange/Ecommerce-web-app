@@ -6,7 +6,7 @@ type Props = {
 	priceTotal: number;
 };
 
-const CartSummary = ({
+export const CartSummary = ({
 	itemsAmount,
 	priceWithoutDiscount,
 	priceTotal,
@@ -30,5 +30,3 @@ const CartSummary = ({
 		</div>
 	);
 };
-
-export default CartSummary;

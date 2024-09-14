@@ -1,14 +1,14 @@
 import styles from "./CartItem.module.css";
-import { ButtonAddToCart, ButtonsCounter } from "../../../../components";
-import { Cart } from "../../../../types/cart.types";
+import { ButtonAddToCart, ButtonsCounter } from "..";
+import { Cart } from "../../types/cart.types";
 
-import productExampleImage from "../../../../assets/images/sample-product-image.jpg";
+import productExampleImage from "../../assets/images/sample-product-image.jpg";
 
 type Props = {
 	cartItem: Cart;
 };
 
-const CartItem = ({ cartItem }: Props) => {
+export const CartItem = ({ cartItem }: Props) => {
 	const addToCart = () => {};
 
 	return (
@@ -34,5 +34,3 @@ const CartItem = ({ cartItem }: Props) => {
 		</div>
 	);
 };
-
-export default CartItem;

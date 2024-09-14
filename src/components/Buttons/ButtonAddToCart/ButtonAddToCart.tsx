@@ -2,19 +2,31 @@ import styles from "./ButtonAddToCart.module.css";
 import iconCart from "../../../assets/icons/icon-cart.svg";
 
 export type Props = {
+	variant: "icon" | "text";
+	className?: string;
 	handleAddToCart: () => void;
 };
 
-export const ButtonAddToCart = ({ handleAddToCart }: Props) => {
+export const ButtonAddToCart = ({
+	handleAddToCart,
+	variant,
+	className,
+}: Props) => {
 	return (
 		<button
 			onClick={handleAddToCart}
-			className={styles.btnAddToCart}>
-			<img
-				src={iconCart}
-				alt=''
-				className={styles.btnImg}
-			/>
+			className={`${
+				variant === "icon" ? styles.btnImg : styles.btnText
+			} ${className}`}>
+			{variant === "icon" ? (
+				<img
+					src={iconCart}
+					alt=''
+					className={styles.image}
+				/>
+			) : (
+				"Add to cart"
+			)}
 		</button>
 	);
 };

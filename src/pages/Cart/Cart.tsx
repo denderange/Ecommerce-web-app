@@ -2,8 +2,7 @@ import styles from "./Cart.module.css";
 // TODO: replace with actual data
 // sample data file =>
 import { cart } from "../../api/mockCartItems";
-import CartItem from "./components/CartItem/CartItem";
-import CartSummary from "./components/CartSummary/CartSummary";
+import { CartItem, CartSummary } from "../../components";
 
 export const Cart = () => {
 	// TODO: this values should be taken from the real cart:

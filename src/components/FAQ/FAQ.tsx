@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FAQitem } from "./FAQitem";
 
 export const FAQ = () => {
-	const [isOpenId, setIsOpenId] = useState<number | null>(null);
+	const [isOpenId, setIsOpenId] = useState<number | null>(1);
 
 	const handleToggle = (itemId: number) => {
 		setIsOpenId((currentValue) => (currentValue !== itemId ? itemId : null));

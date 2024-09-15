@@ -10,10 +10,10 @@ export const NavBar = () => {
 		<nav>
 			<ul className={styles.navList}>
 				<li>
-					<Link to='#!'>Catalog</Link>
+					<Link to='/#CATALOG'>Catalog</Link>
 				</li>
 				<li>
-					<Link to='#!'>FAQ</Link>
+					<Link to='/#FAQ'>FAQ</Link>
 				</li>
 				<li>
 					<LinkCart itemsInCartAmount={itemsInCartAmount} />

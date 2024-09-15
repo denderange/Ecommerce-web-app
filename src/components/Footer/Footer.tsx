@@ -10,10 +10,10 @@ export const Footer = () => {
 
 				<ul className={styles.footerLinksList}>
 					<li>
-						<Link to='#!'>Catalog</Link>
+						<Link to='/#CATALOG'>Catalog</Link>
 					</li>
 					<li>
-						<Link to='#!'>FAQ</Link>
+						<Link to='/#FAQ'>FAQ</Link>
 					</li>
 				</ul>
 			</div>

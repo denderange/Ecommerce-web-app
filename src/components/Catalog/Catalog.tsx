@@ -28,15 +28,18 @@ export const Catalog = () => {
 	// <======
 
 	return (
-		<section className={`container ${styles.catalog}`}>
+		<section
+			id='CATALOG'
+			className={`container ${styles.catalog}`}>
 			<h2 className={styles.catalogTitle}>Catalog</h2>
 
 			<SearchInput handleSearchInput={handleSearchInput} />
 
 			<ul className={styles.catalogList}>
-				{products.map((product, index) => (
+				{products?.map((product, index) => (
 					<li key={index}>
 						<ProductCard
+							id={Number(index + 1)}
 							imagePath={img}
 							productName={product.productName}
 							price={Number(product.price.toFixed(2))}

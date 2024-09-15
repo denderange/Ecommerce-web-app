@@ -11,7 +11,9 @@ export const FAQ = () => {
 	};
 
 	return (
-		<section className={styles.faq}>
+		<section
+			className={styles.faq}
+			id='FAQ'>
 			<div className={styles.faqContainer}>
 				<h3 className={styles.faqTitle}>FAQ</h3>
 				<ul>

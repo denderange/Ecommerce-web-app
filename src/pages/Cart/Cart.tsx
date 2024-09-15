@@ -16,8 +16,12 @@ export const Cart = () => {
 
 			<div className={styles.cartWrapper}>
 				<div className={styles.cartItems}>
-					{cart.map((item) => (
-						<CartItem cartItem={item} />
+					{cart.map((item, index) => (
+						<CartItem
+							cartItem={item}
+							key={index}
+							id={index + 1}
+						/>
 					))}
 				</div>
 

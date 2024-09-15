@@ -89,18 +89,22 @@
 	text-decoration: line-through;
 }
 
+.discountAndButtons {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+	margin-left: 24px;
+}
+
 .discount {
 	font-size: var(--text-m);
 	font-weight: var(--font-regular);
-	margin-left: 24px;
 }
 
 .discount b {
 	font-size: var(--text-m);
 	font-weight: var(--font-semibold);
 	padding-left: 8px;
-}
-
-.btnAddToCart {
-	margin-left: auto;
 }

@@ -1,5 +1,5 @@
 .cart {
-	padding: 32px 0px;
+	padding: 32px 0px 92px 0px;
 }
 
 .title {
@@ -10,6 +10,7 @@
 
 .cartWrapper {
 	display: flex;
+	gap: 20px;
 	justify-content: space-between;
 }
 

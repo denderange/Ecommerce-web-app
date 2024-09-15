@@ -1,31 +1,47 @@
 import { useState } from "react";
 import styles from "./ButtonsCounter.module.css";
+import IconMinus from "../../../assets/icons/icon-minus.svg?react";
+import IconPlus from "../../../assets/icons/icon-plus.svg?react";
 
 type Props = {
 	size: "s" | "m";
+	quantity: number;
+	showDelete: boolean;
 };
 
-export const ButtonsCounter = ({ size }: Props) => {
-	const [productsAmount, setProductsAmount] = useState<number>(4);
+export const ButtonsCounter = ({ size, quantity, showDelete }: Props) => {
+	const [productsAmount, setProductsAmount] = useState<number>(quantity);
 
 	// !!!
-	// TODO: make function to fetch product items quantity
+	// TODO: make function to get and update product items quantity
 	// from the CART state
-	// and set this amount via setProductsAmount
+
+	const decreaseItems = () => {
+		if (productsAmount > 0) {
+			setProductsAmount(productsAmount - 1);
+		}
+	};
+
+	const increaseItems = () => {
+		setProductsAmount(productsAmount + 1);
+	};
 
 	return (
-		<div>
+		<div className={styles.counter}>
 			<button
 				disabled={productsAmount === 0}
-				className={styles.btnCount}>
-				-
+				onClick={decreaseItems}
+				className={`${size === "m" ? styles.btnSizeM : ""} ${styles.btnMinus}`}>
+				<IconMinus />
 			</button>
-			<span>{productsAmount}</span>
+			<span className={styles.amount}>{productsAmount} item</span>
 			<button
 				disabled={productsAmount === 0}
-				className={styles.btnCount}>
-				+
+				onClick={increaseItems}
+				className={`${size === "m" ? styles.btnSizeM : ""} ${styles.btnPlus}`}>
+				<IconPlus />
 			</button>
+			{showDelete && <button className={styles.buttonDelete}>Delete</button>}
 		</div>
 	);
 };

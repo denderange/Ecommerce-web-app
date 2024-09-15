@@ -2,13 +2,37 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	background-color: var(--color-white);
 	border: 1px solid var(--color-gray-200);
-	border-radius: 4px;
 	padding: 12px 24px 12px 12px;
+
+	border-radius: 4px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	-ms-border-radius: 4px;
 	-o-border-radius: 4px;
+
+	transition: background-color 0.3s ease-in-out;
+	-webkit-transition: background-color 0.3s ease-in-out;
+	-moz-transition: background-color 0.3s ease-in-out;
+	-ms-transition: background-color 0.3s ease-in-out;
+	-o-transition: background-color 0.3s ease-in-out;
+}
+
+.productContainer:hover {
+	background-color: var(--color-gray-100);
+}
+
+.itemZeroQuantity {
+	border-color: var(--color-gray-100);
+}
+
+.itemZeroQuantity:hover {
+	background-color: var(--color-white);
+}
+
+.itemZeroQuantity .detailsWrapper {
+	opacity: 0.5;
 }
 
 .detailsWrapper {

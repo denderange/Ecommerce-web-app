@@ -3,21 +3,14 @@ import iconCart from "../../../assets/icons/icon-cart.svg";
 
 export type Props = {
 	variant: "icon" | "text";
-	className?: string;
 	handleAddToCart: () => void;
 };
 
-export const ButtonAddToCart = ({
-	handleAddToCart,
-	variant,
-	className,
-}: Props) => {
+export const ButtonAddToCart = ({ handleAddToCart, variant }: Props) => {
 	return (
 		<button
 			onClick={handleAddToCart}
-			className={`${
-				variant === "icon" ? styles.btnImg : styles.btnText
-			} ${className}`}>
+			className={`${variant === "icon" ? styles.btnImg : styles.btnText}`}>
 			{variant === "icon" ? (
 				<img
 					src={iconCart}

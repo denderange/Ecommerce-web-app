@@ -18,35 +18,37 @@ export const CartItem = ({ cartItem, id }: Props) => {
 			className={`${cartItem.amount === 0 ? styles.itemZeroQuantity : ""} ${
 				styles.productContainer
 			}`}>
-			<Link to={`/product/${id}`}>
-				<div className={styles.detailsWrapper}>
-					<img
-						src={productExampleImage}
-						alt=''
-						className={styles.productImage}
-					/>
+			<div className={styles.detailsWrapper}>
+				<img
+					src={productExampleImage}
+					alt=''
+					className={styles.productImage}
+				/>
 
-					<div className={styles.productDetails}>
-						<p className={styles.productName}>{cartItem.product.productName}</p>
-						<span className={styles.productPrice}>
-							${cartItem.product.price}
-						</span>
-					</div>
+				<div className={styles.productDetails}>
+					<Link
+						to={`/product/${id}`}
+						className={styles.productName}>
+						{cartItem.product.productName}
+					</Link>
+					<span className={styles.productPrice}>${cartItem.product.price}</span>
 				</div>
-			</Link>
+			</div>
 
-			{cartItem.amount > 0 ? (
-				<ButtonsCounter
-					size='s'
-					showDelete={true}
-					quantity={cartItem.amount}
-				/>
-			) : (
-				<ButtonAddToCart
-					handleAddToCart={addToCart}
-					variant='icon'
-				/>
-			)}
+			<div className={styles.buttons}>
+				{cartItem.amount > 0 ? (
+					<ButtonsCounter
+						size='s'
+						showDelete={true}
+						quantity={cartItem.amount}
+					/>
+				) : (
+					<ButtonAddToCart
+						handleAddToCart={addToCart}
+						variant='icon'
+					/>
+				)}
+			</div>
 		</div>
 	);
 };

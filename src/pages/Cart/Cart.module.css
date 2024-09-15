@@ -28,3 +28,25 @@
 	-ms-border-radius: 4px;
 	-o-border-radius: 4px;
 }
+
+/* media */
+@media (max-width: 1024px) {
+	.cartItems {
+		padding: 20px 20px;
+	}
+}
+
+@media (max-width: 640px) {
+	.cartWrapper {
+		display: flex;
+		flex-direction: column;
+		flex-direction: column-reverse;
+		gap: 20px;
+		justify-content: space-between;
+	}
+
+	.cartItems {
+		width: 100%;
+		/* padding: 20px 40px; */
+	}
+}

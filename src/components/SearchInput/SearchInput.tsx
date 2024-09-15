@@ -6,11 +6,15 @@ type Props = {
 
 export const SearchInput = ({ handleSearchInput }: Props) => {
 	return (
-		<input
-			type='text'
-			placeholder='Search by title'
-			onChange={handleSearchInput}
-			className={styles.searchInput}
-		/>
+		<label htmlFor='search'>
+			<input
+				type='text'
+				name='search'
+				id='search'
+				placeholder='Search by title'
+				onChange={handleSearchInput}
+				className={styles.searchInput}
+			/>
+		</label>
 	);
 };

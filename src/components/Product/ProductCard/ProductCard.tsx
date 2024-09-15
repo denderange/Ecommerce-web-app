@@ -12,7 +12,7 @@ export const ProductCard = ({ id, imagePath, productName, price }: Product) => {
 	// !!!
 	// TODO: check if current product exists in user's cart ==>
 	const showButtonsPlusAndMinus = id === 4;
-	const productCartAmount = 1;
+	const productCartAmount = 15;
 
 	return (
 		<div className={styles.productContainer}>
@@ -40,18 +40,20 @@ export const ProductCard = ({ id, imagePath, productName, price }: Product) => {
 					</Link>
 					<span className={styles.productPrice}>${price}</span>
 				</div>
-				{!showButtonsPlusAndMinus ? (
-					<ButtonAddToCart
-						handleAddToCart={handleAddToCart}
-						variant='icon'
-					/>
-				) : (
-					<ButtonsCounter
-						quantity={productCartAmount}
-						size='s'
-						showDelete={false}
-					/>
-				)}
+				<div className={styles.buttons}>
+					{!showButtonsPlusAndMinus ? (
+						<ButtonAddToCart
+							handleAddToCart={handleAddToCart}
+							variant='icon'
+						/>
+					) : (
+						<ButtonsCounter
+							quantity={productCartAmount}
+							size='s'
+							showDelete={false}
+						/>
+					)}
+				</div>
 			</div>
 		</div>
 	);

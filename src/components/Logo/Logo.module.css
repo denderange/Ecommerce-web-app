@@ -12,3 +12,17 @@
 .logo:hover {
 	color: var(--color-gray-200);
 }
+
+/* media */
+@media (max-width: 576px) {
+	.logo {
+		font-size: var(--text-l);
+	}
+}
+
+@media (max-width: 440px) {
+	.logo {
+		text-align: right;
+		font-size: var(--text-s);
+	}
+}

@@ -34,7 +34,9 @@ export const ButtonsCounter = ({ size, quantity, showDelete }: Props) => {
 				className={`${size === "m" ? styles.btnSizeM : ""} ${styles.btnMinus}`}>
 				<IconMinus />
 			</button>
-			<span className={styles.amount}>{productsAmount} item</span>
+			<span className={styles.amount}>
+				{productsAmount} {productsAmount === 1 ? "item" : "items"}
+			</span>
 			<button
 				disabled={productsAmount === 0}
 				onClick={increaseItems}

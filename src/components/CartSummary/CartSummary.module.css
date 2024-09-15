@@ -58,3 +58,10 @@
 	font-size: var(--text-xl);
 	font-weight: var(--font-bold);
 }
+
+/* media */
+@media (max-width: 640px) {
+	.cartSummary {
+		width: 100%;
+	}
+}

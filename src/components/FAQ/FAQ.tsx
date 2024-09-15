@@ -12,7 +12,7 @@ export const FAQ = () => {
 
 	return (
 		<section
-			className={styles.faq}
+			className={`container ${styles.faq}`}
 			id='FAQ'>
 			<div className={styles.faqContainer}>
 				<h3 className={styles.faqTitle}>FAQ</h3>

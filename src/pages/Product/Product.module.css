@@ -15,8 +15,8 @@
 .title {
 	font-size: var(--text-3xl);
 	font-weight: var(--font-semibold);
-	line-height: 0;
-	padding-top: 4px;
+	line-height: normal;
+	margin: 0px;
 }
 
 .ratingAndCategory {
@@ -107,4 +107,42 @@
 	font-size: var(--text-m);
 	font-weight: var(--font-semibold);
 	padding-left: 8px;
+}
+
+/* media */
+@media (max-width: 1024px) {
+	.discountAndButtons {
+		flex-direction: column;
+	}
+}
+
+@media (max-width: 768px) {
+	.ratingAndCategory {
+		flex-direction: column;
+		gap: 15px;
+		align-items: flex-start;
+	}
+}
+
+@media (max-width: 640px) {
+	.productDetails {
+		flex-direction: column-reverse;
+	}
+
+	.productInfo {
+		width: 100%;
+	}
+}
+
+@media (max-width: 400px) {
+	.bottomActions {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.priceAndDiscount {
+		border-right: 0px;
+		padding: 0px;
+		margin-bottom: 20px;
+	}
 }

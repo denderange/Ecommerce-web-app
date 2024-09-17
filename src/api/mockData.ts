@@ -7,6 +7,7 @@ export const generateMockProducts = (itemsCount: number): Product[] => {
 
 	for (let i = 0; i < itemsCount; i++) {
 		productsArray.push({
+			id: i,
 			imagePath: "",
 			productName: "Essence Mascara Lash Princess",
 			price: randomPrice,

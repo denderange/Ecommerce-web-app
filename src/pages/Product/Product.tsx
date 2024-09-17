@@ -14,7 +14,6 @@ export const Product = () => {
 
 	const {
 		productName,
-		ratings,
 		inStock,
 		description,
 		warranty,
@@ -36,7 +35,7 @@ export const Product = () => {
 			<div className={styles.productInfo}>
 				<h1 className={styles.title}>{productName}</h1>
 				<div className={styles.ratingAndCategory}>
-					<ProductRating rating={ratings} />
+					<ProductRating />
 
 					<div className={styles.categories}>
 						<span>{categories[0]}</span>

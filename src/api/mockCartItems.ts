@@ -9,6 +9,7 @@ export const cart: Cart[] = [
 	{
 		id: 1,
 		product: {
+			id: 1,
 			imagePath: "",
 			productName: "Essence Mascara Lash Princess",
 			price: 110,
@@ -18,6 +19,7 @@ export const cart: Cart[] = [
 	{
 		id: 1,
 		product: {
+			id: 2,
 			imagePath: "",
 			productName: "Essence Mascara Lash Princess",
 			price: 110,
@@ -27,6 +29,7 @@ export const cart: Cart[] = [
 	{
 		id: 1,
 		product: {
+			id: 3,
 			imagePath: "",
 			productName: "Essence Mascara Lash Princess",
 			price: 110,
@@ -36,6 +39,7 @@ export const cart: Cart[] = [
 	{
 		id: 1,
 		product: {
+			id: 4,
 			imagePath: "",
 			productName: "Essence Mascara Lash Princess",
 			price: 110,

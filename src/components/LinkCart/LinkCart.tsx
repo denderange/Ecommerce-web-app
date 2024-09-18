@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import iconCart from "../../assets/icons/icon-cart.svg";
 import styles from "./LinkCart.module.css";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 
-interface Props {
-	itemsInCartAmount: number;
-}
+export const LinkCart = () => {
+	const { cart, loading } = useSelector((state: RootState) => state.cart);
 
-export const LinkCart = ({ itemsInCartAmount }: Props) => {
 	return (
 		<>
 			<Link to='/cart'>
@@ -16,9 +16,11 @@ export const LinkCart = ({ itemsInCartAmount }: Props) => {
 						src={iconCart}
 						alt=''
 					/>
-					<span className={styles.cartItemsCount}>
-						{itemsInCartAmount < 99 ? itemsInCartAmount : "99+"}
-					</span>
+					{cart[0] && loading === "fulfilled" && (
+						<span className={styles.cartItemsCount}>
+							{cart[0].totalQuantity < 99 ? cart[0].totalQuantity : "99+"}
+						</span>
+					)}
 				</div>
 			</Link>
 		</>

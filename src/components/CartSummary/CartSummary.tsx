@@ -7,9 +7,9 @@ type Props = {
 };
 
 export const CartSummary = ({
-	itemsAmount,
-	priceWithoutDiscount,
-	priceTotal,
+	itemsAmount = 0,
+	priceWithoutDiscount = 0,
+	priceTotal = 0,
 }: Props) => {
 	return (
 		<div className={styles.cartSummary}>

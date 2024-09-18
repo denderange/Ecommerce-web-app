@@ -1,46 +1,48 @@
 import styles from "./CartItem.module.css";
-import { ButtonAddToCart, ButtonsCounter } from "..";
-import { Cart } from "../../types/cart.types";
-
-import productExampleImage from "../../assets/images/sample-product-image.jpg";
 import { Link } from "react-router-dom";
+import { ButtonAddToCart, ButtonsCounter } from "..";
+import { ProductT } from "../../types/product.types";
 
 type Props = {
-	cartItem: Cart;
-	id: number;
+	cartItem: ProductT;
 };
 
-export const CartItem = ({ cartItem, id }: Props) => {
+export const CartItem = ({ cartItem }: Props) => {
 	const addToCart = () => {};
+
+	const priceWithDiscount =
+		cartItem.price - (cartItem.price * cartItem.discountPercentage) / 100;
 
 	return (
 		<div
-			className={`${cartItem.amount === 0 ? styles.itemZeroQuantity : ""} ${
+			className={`${cartItem.quantity === 0 ? styles.itemZeroQuantity : ""} ${
 				styles.productContainer
 			}`}>
 			<div className={styles.detailsWrapper}>
 				<img
-					src={productExampleImage}
-					alt=''
+					src={cartItem.thumbnail}
+					alt={cartItem.title}
 					className={styles.productImage}
 				/>
 
 				<div className={styles.productDetails}>
 					<Link
-						to={`/product/${id}`}
+						to={`/product/${cartItem.id}`}
 						className={styles.productName}>
-						{cartItem.product.productName}
+						{cartItem.title}
 					</Link>
-					<span className={styles.productPrice}>${cartItem.product.price}</span>
+					<span className={styles.productPrice}>
+						${priceWithDiscount.toFixed(2)}
+					</span>
 				</div>
 			</div>
 
 			<div className={styles.buttons}>
-				{cartItem.amount > 0 ? (
+				{cartItem.quantity > 0 ? (
 					<ButtonsCounter
 						size='s'
 						showDelete={true}
-						quantity={cartItem.amount}
+						quantity={cartItem.quantity}
 					/>
 				) : (
 					<ButtonAddToCart

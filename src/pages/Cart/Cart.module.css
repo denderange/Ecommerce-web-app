@@ -14,6 +14,14 @@
 	justify-content: space-between;
 }
 
+.noItems {
+	text-align: center;
+	padding-top: 48px;
+	color: var(--color-gray-500);
+	font-size: var(--text-xl);
+	font-weight: var(--font-semibold);
+}
+
 /* cart Item */
 .cartItems {
 	display: flex;

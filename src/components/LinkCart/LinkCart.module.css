@@ -9,6 +9,7 @@
 .cartItemsCount {
 	width: 14px;
 	height: 14px;
+	text-align: center;
 	display: flex;
 	align-items: center;
 	justify-content: center;

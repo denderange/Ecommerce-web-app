@@ -1,7 +1,11 @@
-import type { Product } from "./product.types";
+import type { ProductT } from "./product.types";
 
-export interface Cart {
+export interface CartT {
 	id: number;
-	product: Product;
-	amount: number;
+	products: ProductT[] | [];
+	total: number;
+	discountedTotal: number;
+	userId: number;
+	totalProducts: number;
+	totalQuantity: number;
 }

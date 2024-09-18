@@ -1,6 +1,10 @@
-export type Product = {
+export type ProductT = {
 	id: number;
-	imagePath: string;
-	productName: string;
+	title: string;
 	price: number;
+	quantity: number;
+	total: number;
+	discountPercentage: number;
+	discountedTotal: number;
+	thumbnail: string;
 };

@@ -4,13 +4,13 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 
 export const Cart = () => {
-	const { cart, loading } = useSelector((state: RootState) => state.cart);
+	// const { cart, loading } = useSelector((state: RootState) => state.cart);
 
 	return (
 		<div className={`container ${styles.cart}`}>
 			<h1 className={styles.title}>My cart</h1>
 
-			{cart[0] && loading === "fulfilled" ? (
+			{/* {cart[0] && loading === "fulfilled" ? (
 				<div className={styles.cartWrapper}>
 					<div className={styles.cartItems}>
 						{cart[0]?.products.map((product) => (
@@ -28,8 +28,8 @@ export const Cart = () => {
 					/>
 				</div>
 			) : (
-				<p className={styles.noItems}>No items</p>
-			)}
+				<div className={styles.noItems}>No items</div>
+			)} */}
 		</div>
 	);
 };

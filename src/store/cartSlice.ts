@@ -8,7 +8,6 @@ export const getCartByUserId = createAsyncThunk(
 			const res = await fetch(`https://dummyjson.com/carts/user/${userId}`);
 			return await res.json();
 		} catch (error) {
-			console.log(error);
 			return thunkAPI.rejectWithValue(error);
 		}
 	}

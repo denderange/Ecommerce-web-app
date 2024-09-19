@@ -30,14 +30,7 @@ const Router = () => {
 				/>
 				<Route
 					path='/product/:id'
-					element={
-						<>
-							<PageTitle
-								title={`Essence Mascara Lash Princess | ${APP_TITLE}`}
-							/>
-							<Product />
-						</>
-					}
+					element={<Product />}
 				/>
 				<Route
 					path='*'

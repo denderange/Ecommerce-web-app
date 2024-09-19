@@ -24,6 +24,14 @@
 	line-height: 22px;
 }
 
+.fetchError.noItems {
+	text-align: center;
+	padding-top: 48px;
+	color: var(--color-gray-500);
+	font-size: var(--text-xl);
+	font-weight: var(--font-semibold);
+}
+
 @media (max-width: 1024px) {
 	.catalogList {
 		column-gap: 10px;

@@ -1,18 +1,36 @@
-import type { Product } from "../../../types/product.types";
 import styles from "./ProductCard.module.css";
 import blankImage from "../../../assets/images/image-coming-soon-placeholder.webp";
 import { ButtonAddToCart, ButtonsCounter } from "../..";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
+import { useState } from "react";
 
-export const ProductCard = ({ id, imagePath, productName, price }: Product) => {
+type Props = {
+	id: number;
+	imagePath: string;
+	productName: string;
+	price: number;
+};
+
+export const ProductCard = ({ id, imagePath, productName, price }: Props) => {
+	const [quantityInCart, setQuantityInCart] = useState(0);
+	// const { cart } = useSelector((state: RootState) => state.cart);
+
+	// console.log(cart);
+
+	// if (cart) {
+	// 	const productInCart = cart[0].products.find((product) => product.id === id);
+
+	// 	if (productInCart) {
+	// 		setQuantityInCart(productInCart?.quantity);
+	// 	}
+	// }
+
 	// !!!
+	// TODO: check if current product exists in user's cart.
 	// TODO: process this function
 	const handleAddToCart = () => {};
-
-	// !!!
-	// TODO: check if current product exists in user's cart ==>
-	const showButtonsPlusAndMinus = id === 4;
-	const productCartAmount = 15;
 
 	return (
 		<div className={styles.productContainer}>
@@ -41,16 +59,16 @@ export const ProductCard = ({ id, imagePath, productName, price }: Product) => {
 					<span className={styles.productPrice}>${price}</span>
 				</div>
 				<div className={styles.buttons}>
-					{!showButtonsPlusAndMinus ? (
+					{quantityInCart > 0 ? (
+						<ButtonsCounter
+							quantity={quantityInCart}
+							size='s'
+							showDelete={false}
+						/>
+					) : (
 						<ButtonAddToCart
 							handleAddToCart={handleAddToCart}
 							variant='icon'
-						/>
-					) : (
-						<ButtonsCounter
-							quantity={productCartAmount}
-							size='s'
-							showDelete={false}
 						/>
 					)}
 				</div>

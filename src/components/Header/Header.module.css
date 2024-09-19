@@ -6,7 +6,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 28px 0px 27px 0px;
+	padding-top: 28px;
+	padding-bottom: 28px;
 }
 
 @media (max-width: 576px) {

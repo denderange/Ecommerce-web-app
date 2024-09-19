@@ -1,83 +1,109 @@
 import styles from "./Product.module.css";
-import { productData } from "../../api/mockProduct";
 import {
 	ButtonAddToCart,
 	ButtonsCounter,
+	PageTitle,
 	ProductRating,
 	ProductSlider,
 } from "../../components";
-// import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useGetProductByIdQuery } from "../../store/apiSlice";
+import { calculatePriceWithDiscount } from "../../lib/utils/calculatePrice";
+import { NotFound } from "../NotFound/NotFound";
+import { APP_TITLE } from "../../constants/appTitle";
 
 export const Product = () => {
-	// const { id } = useParams();
-	// TODO: fetch product data by this id and remove -=productData=-
-
+	const { id } = useParams();
 	const {
-		productName,
-		inStock,
-		description,
-		warranty,
-		shippingTime,
-		price,
-		categories,
-	} = productData;
+		data: product,
+		error,
+		isLoading,
+	} = useGetProductByIdQuery(Number(id));
 
-	const priceWithDiscount = 9.99;
-	const userDiscount = 14.5;
+	// !!! TODO: implement ability to add product in user's cart ==>
 	const itemsQuantityInCart = 0;
-
 	const handleAddToCart = () => {};
+
+	if (error) {
+		return <NotFound />;
+	}
 
 	return (
 		<div className={`container ${styles.productDetails}`}>
-			<ProductSlider />
+			{isLoading && <div>-=Loading.......=-</div>}
+			{product && (
+				<>
+					<PageTitle title={`${product.title} | ${APP_TITLE}`} />
+					<ProductSlider
+						images={product.images}
+						imgAlt={product.title}
+					/>
 
-			<div className={styles.productInfo}>
-				<h1 className={styles.title}>{productName}</h1>
-				<div className={styles.ratingAndCategory}>
-					<ProductRating />
+					<div className={styles.productInfo}>
+						<h1 className={styles.title}>{product.title}</h1>
+						<div className={styles.ratingAndCategory}>
+							<ProductRating rating={Math.round(product.rating)} />
 
-					<div className={styles.categories}>
-						<span>{categories[0]}</span>
-						{", "}
-						<span>{categories[1]}</span>
-					</div>
-				</div>
-
-				<div className={styles.stock}>In Stock - Only {inStock} left!</div>
-
-				<p className={styles.description}>{description}</p>
-
-				<div className={styles.warranty}>{warranty} warranty</div>
-				<div className={styles.shippingTime}>Ships in {shippingTime}</div>
-
-				<div className={styles.bottomActions}>
-					<div className={styles.priceAndDiscount}>
-						<b>${price}</b>
-						<span>${priceWithDiscount}</span>
-					</div>
-
-					<div className={styles.discountAndButtons}>
-						<div className={styles.discount}>
-							Your discount:
-							<b>{userDiscount}%</b>
+							<div className={styles.category}>
+								{product?.tags.map((tag) => (
+									<Link
+										to='!#'
+										key={tag}
+										className={styles.categoryLink}>
+										<span>{tag}</span>
+									</Link>
+								))}
+							</div>
 						</div>
 
-						{itemsQuantityInCart ? (
-							<ButtonsCounter
-								size='m'
-								quantity={itemsQuantityInCart}
-								showDelete={false}
-							/>
-						) : (
-							<ButtonAddToCart
-								handleAddToCart={handleAddToCart}
-								variant='text'
-							/>
-						)}
+						<div className={styles.stock}>
+							In Stock - Only {product.stock} left!
+						</div>
+
+						<p className={styles.description}>{product.description}</p>
+
+						<div className={styles.warranty}>
+							{product?.warrantyInformation}
+						</div>
+						<div className={styles.shippingTime}>
+							{product?.shippingInformation}
+						</div>
+
+						<div className={styles.bottomActions}>
+							<div className={styles.priceAndDiscount}>
+								<b>${product.price}</b>
+								<span>
+									$
+									{calculatePriceWithDiscount(
+										product.price,
+										product.discountPercentage
+									)}
+								</span>
+							</div>
+
+							<div className={styles.discountAndButtons}>
+								<div className={styles.discount}>
+									Your discount:
+									<b>{product.discountPercentage}%</b>
+								</div>
+
+								{itemsQuantityInCart ? (
+									<ButtonsCounter
+										size='m'
+										quantity={itemsQuantityInCart}
+										showDelete={false}
+									/>
+								) : (
+									<ButtonAddToCart
+										handleAddToCart={handleAddToCart}
+										variant='text'
+									/>
+								)}
+							</div>
+						</div>
 					</div>
-				</div>
-			</div>
+				</>
+			)}
 		</div>
 	);
 };

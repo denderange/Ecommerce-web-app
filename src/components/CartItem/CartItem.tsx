@@ -1,17 +1,20 @@
 import styles from "./CartItem.module.css";
 import { Link } from "react-router-dom";
 import { ButtonAddToCart, ButtonsCounter } from "..";
-import { ProductT } from "../../types/product.types";
+import { TProductInCart } from "../../types/product.types";
+import { calculatePriceWithDiscount } from "../../lib/utils/calculatePrice";
 
 type Props = {
-	cartItem: ProductT;
+	cartItem: TProductInCart;
 };
 
 export const CartItem = ({ cartItem }: Props) => {
 	const addToCart = () => {};
 
-	const priceWithDiscount =
-		cartItem.price - (cartItem.price * cartItem.discountPercentage) / 100;
+	const priceWithDiscount = calculatePriceWithDiscount(
+		cartItem.price,
+		cartItem.discountPercentage
+	);
 
 	return (
 		<div
@@ -31,9 +34,7 @@ export const CartItem = ({ cartItem }: Props) => {
 						className={styles.productName}>
 						{cartItem.title}
 					</Link>
-					<span className={styles.productPrice}>
-						${priceWithDiscount.toFixed(2)}
-					</span>
+					<span className={styles.productPrice}>${priceWithDiscount}</span>
 				</div>
 			</div>
 

@@ -1,8 +1,8 @@
-import type { ProductT } from "./product.types";
+import type { TProductInCart } from "./product.types";
 
 export interface CartT {
 	id: number;
-	products: ProductT[] | [];
+	products: TProductInCart[] | [];
 	total: number;
 	discountedTotal: number;
 	userId: number;

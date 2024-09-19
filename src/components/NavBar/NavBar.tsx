@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
+import { Link } from "react-router-dom";
 import { LinkCart } from "..";
 
 export const NavBar = () => {
 	const currentUser = "Johnson Smith";
-	const itemsInCartAmount = 101;
 
 	return (
 		<nav>
@@ -16,7 +15,7 @@ export const NavBar = () => {
 					<Link to='/#FAQ'>FAQ</Link>
 				</li>
 				<li>
-					<LinkCart itemsInCartAmount={itemsInCartAmount} />
+					<LinkCart />
 				</li>
 				<li>
 					<Link to='#!'>{currentUser}</Link>

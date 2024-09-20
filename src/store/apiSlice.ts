@@ -21,10 +21,6 @@ export const productsApi = createApi({
 		getProductById: builder.query<IProduct, number>({
 			query: (productId: number) => `products/${productId}`,
 		}),
-		// searchProduct: builder.query({
-		// 	query: (searchQuery: string) =>
-		// 		`products/search?q=${searchQuery}&limit=12`,
-		// }),
 	}),
 });
 

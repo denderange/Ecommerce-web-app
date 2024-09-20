@@ -60,12 +60,6 @@ export const Catalog = () => {
 							Show more
 						</button>
 					)}
-					<div>
-						<div>
-							products total:{data?.total}| products limit: {productsLimit}
-						</div>
-						<div>debouncedSearchQuery: {debouncedSearchString}</div>
-					</div>
 				</>
 			)}
 		</section>

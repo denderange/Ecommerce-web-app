@@ -14,7 +14,7 @@ export const Hero = () => {
 						at low prices
 					</p>
 					<Link
-						to='#!'
+						to='#CATALOG'
 						className='buttonLink'>
 						Go to shopping
 					</Link>

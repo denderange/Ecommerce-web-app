@@ -9,22 +9,26 @@ import {
 import { Link, useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../store/apiSlice";
 import { calculatePriceWithDiscount } from "../../lib/utils/calculatePrice";
+import { getQuantityInCart } from "../../lib/utils/getQuantityInCart";
 import { NotFound } from "../NotFound/NotFound";
 import { APP_TITLE } from "../../constants/appTitle";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 
 export const Product = () => {
 	const { id } = useParams();
 	const {
 		data: product,
-		error,
+		isError,
 		isLoading,
 	} = useGetProductByIdQuery(Number(id));
+	const { cart } = useSelector((state: RootState) => state.cart);
+	const itemsQuantityInCart = getQuantityInCart(cart, Number(id));
 
 	// !!! TODO: implement ability to add product in user's cart ==>
-	const itemsQuantityInCart = 0;
 	const handleAddToCart = () => {};
 
-	if (error) {
+	if (isError) {
 		return <NotFound />;
 	}
 

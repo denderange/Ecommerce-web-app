@@ -6,16 +6,20 @@ import { getRefValue } from "../../lib/hooks/getRefValue";
 type Props = {
 	question: string;
 	answer: string;
-	isOpen: boolean;
-	handleToggle: () => void;
+	itemId: number;
 };
 
-export const FAQitem = ({ question, answer, isOpen, handleToggle }: Props) => {
+export const FAQitem = ({ question, answer, itemId }: Props) => {
+	const [isOpen, setIsOpen] = useState<number | null>(1);
+
+	const handleToggle = () => {
+		setIsOpen(isOpen ? null : itemId);
+	};
 	const [height, setHeight] = useState(0);
 	const ref = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		if (isOpen) {
+		if (!isOpen) {
 			const contentAnswer = getRefValue(ref);
 			setHeight(contentAnswer.scrollHeight);
 		} else {
@@ -24,14 +28,14 @@ export const FAQitem = ({ question, answer, isOpen, handleToggle }: Props) => {
 	}, [isOpen]);
 
 	return (
-		<li className={`${styles.faqItem} ${isOpen ? "active" : ""}`}>
-			<button
-				onClick={handleToggle}
-				className={styles.buttonQuestion}>
+		<li
+			className={`${styles.faqItem} ${isOpen ? "" : "active"}`}
+			onClick={handleToggle}>
+			<button className={styles.buttonQuestion}>
 				{question}
 				<IconClose
 					className={`${styles.iconClose} ${
-						isOpen ? styles.iconCloseActive : ""
+						!isOpen ? styles.iconCloseActive : ""
 					}`}
 				/>
 			</button>

@@ -9,24 +9,27 @@ interface IProductsData {
 export const productsApi = createApi({
 	reducerPath: "productsApi",
 	baseQuery: fetchBaseQuery({ baseUrl: "https://dummyjson.com/" }),
-	tagTypes: ["IProduct"],
+	tagTypes: ["products"],
 	endpoints: (builder) => ({
-		getProducts: builder.query<IProductsData, string>({
-			query: (searchQuery: string) =>
-				`products/search?q=${searchQuery}&limit=12`,
+		getProducts: builder.query<
+			IProductsData,
+			{ searchQuery: string; productsLimit: number }
+		>({
+			query: (arg: { searchQuery: string; productsLimit: number }) =>
+				`products/search?q=${arg.searchQuery}&limit=${arg.productsLimit}&skip=0`,
 		}),
 		getProductById: builder.query<IProduct, number>({
 			query: (productId: number) => `products/${productId}`,
 		}),
-		searchProduct: builder.query({
-			query: (searchQuery: string) =>
-				`products/search?q=${searchQuery}&limit=12`,
-		}),
+		// searchProduct: builder.query({
+		// 	query: (searchQuery: string) =>
+		// 		`products/search?q=${searchQuery}&limit=12`,
+		// }),
 	}),
 });
 
 export const {
 	useGetProductsQuery,
 	useGetProductByIdQuery,
-	useSearchProductQuery,
+	// useSearchProductQuery,
 } = productsApi;

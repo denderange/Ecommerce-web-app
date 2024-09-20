@@ -47,7 +47,7 @@ export const Product = () => {
 							<div className={styles.category}>
 								{product?.tags.map((tag) => (
 									<Link
-										to='!#'
+										to='#!'
 										key={tag}
 										className={styles.categoryLink}>
 										<span>{tag}</span>

@@ -12,9 +12,9 @@ export const FAQ = () => {
 
 	return (
 		<section
-			className={`container ${styles.faq}`}
+			className={styles.faq}
 			id='FAQ'>
-			<div className={styles.faqContainer}>
+			<div className={`container ${styles.faqContainer}`}>
 				<h3 className={styles.faqTitle}>FAQ</h3>
 				<ul>
 					{faqData.map((item) => (

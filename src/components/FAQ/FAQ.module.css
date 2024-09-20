@@ -1,12 +1,12 @@
 .faq {
 	color: var(--color-white);
 	background-color: var(--color-violet);
-	padding: 61px 0px 64px 0px;
 }
 
 .faqContainer {
-	max-width: 880px;
+	width: 880px;
 	margin: 0px auto;
+	padding: 60px 0px;
 }
 
 .faqTitle {
@@ -38,7 +38,7 @@
 }
 
 .iconClose {
-	width: 25px;
+	max-width: 25px;
 	height: 25px;
 	transition: transform 0.3s ease-in-out;
 	-webkit-transition: transform 0.3s ease-in-out;

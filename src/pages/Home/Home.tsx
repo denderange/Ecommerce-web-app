@@ -4,7 +4,7 @@ import { useAppDispatch } from "../../store/store";
 import { getCartByUserId } from "../../store/cartSlice";
 
 export const Home = () => {
-	const userId = 11;
+	const userId = 23; // hardcoded for now
 	const dispatch = useAppDispatch();
 
 	const fetchCart = async (userId: number) => {

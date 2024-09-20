@@ -8,7 +8,7 @@ export type Props = {
 };
 
 export const ButtonAddToCart = ({
-  variant,
+	variant,
 	btnText = "Add to cart",
 	handleAddToCart,
 }: Props) => {

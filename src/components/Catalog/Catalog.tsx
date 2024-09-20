@@ -1,30 +1,25 @@
 import styles from "./Catalog.module.css";
 import { ChangeEvent, useState } from "react";
-import { ProductCard } from "../Product/ProductCard/ProductCard";
-import { SearchInput } from "../SearchInput/SearchInput";
 import { useGetProductsQuery } from "../../store/apiSlice";
 import { calculatePriceWithDiscount } from "../../lib/utils/calculatePrice";
 import { useDebounce } from "@uidotdev/usehooks";
+import { ProductCard, SearchInput } from "..";
 
 export const Catalog = () => {
 	const [productsLimit, setProductsLimit] = useState<number>(12);
 
-	const [searchQuery, setSearchQuery] = useState<string>("");
-	const debouncedSearchQuery = useDebounce(searchQuery, 1000);
-	const { data, isLoading, isError } =
-		useGetProductsQuery(debouncedSearchQuery);
+	const [searchString, setSearchString] = useState<string>("");
+	const debouncedSearchString = useDebounce(searchString, 1000);
+
+	const { data, isLoading, isError } = useGetProductsQuery({
+		searchQuery: debouncedSearchString,
+		productsLimit,
+	});
 
 	const handleSearchInput = (
 		e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 	) => {
-		setSearchQuery(e.currentTarget.value);
-	};
-
-	// !!!
-	// TODO : handle this hardcoded units ======>
-	// const handleSearchInput = () => {};
-	const loadMoreProducts = () => {
-		// setProductsLimit
+		setSearchString(e.currentTarget.value);
 	};
 
 	return (
@@ -58,14 +53,19 @@ export const Catalog = () => {
 						))}
 					</ul>
 
-					{data?.products.length! < 12 && (
+					{data?.total! - productsLimit > 0 && (
 						<button
 							className={`buttonLink ${styles.btnShowMore}`}
 							onClick={() => setProductsLimit(productsLimit + 12)}>
 							Show more
 						</button>
 					)}
-					<p>adad{data?.total}</p>
+					<div>
+						<div>
+							products total:{data?.total}| products limit: {productsLimit}
+						</div>
+						<div>debouncedSearchQuery: {debouncedSearchString}</div>
+					</div>
 				</>
 			)}
 		</section>

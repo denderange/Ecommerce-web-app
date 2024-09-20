@@ -15,7 +15,7 @@ export const getCartByUserId = createAsyncThunk(
 
 interface CartState {
 	cart: CartT[];
-	loading: string;
+	loading: "" | "pending" | "fulfilled" | "rejected";
 	error: string | null | undefined;
 }
 
@@ -36,7 +36,7 @@ export const cartSlice = createSlice({
 			})
 			.addCase(getCartByUserId.fulfilled, (state, action) => {
 				state.loading = "fulfilled";
-				state.cart.push(action.payload.carts[0]);
+				state.cart[0] = action.payload.carts[0];
 			})
 			.addCase(getCartByUserId.rejected, (state, action) => {
 				state.loading = "rejected";

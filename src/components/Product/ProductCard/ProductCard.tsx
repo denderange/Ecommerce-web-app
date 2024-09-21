@@ -20,7 +20,7 @@ export const ProductCard = ({ id, imagePath, productName, price }: Props) => {
 	const handleAddToCart = () => {};
 
 	return (
-		<div className={styles.productContainer}>
+		<>
 			<div className={styles.imgUnderlay}></div>
 
 			<Link to={`product/${id}`}>
@@ -61,6 +61,6 @@ export const ProductCard = ({ id, imagePath, productName, price }: Props) => {
 					)}
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };

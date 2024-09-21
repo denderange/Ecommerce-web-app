@@ -4,9 +4,9 @@
 }
 
 .faqContainer {
-	width: 880px;
+	max-width: 1020px;
 	margin: 0px auto;
-	padding: 60px 0px;
+	padding: 60px 20px;
 }
 
 .faqTitle {

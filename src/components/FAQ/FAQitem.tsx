@@ -10,7 +10,9 @@ type Props = {
 };
 
 export const FAQitem = ({ question, answer, itemId }: Props) => {
-	const [isOpen, setIsOpen] = useState<number | null>(1);
+	const [isOpen, setIsOpen] = useState<number | null>(
+		itemId === 1 ? null : itemId
+	);
 
 	const handleToggle = () => {
 		setIsOpen(isOpen ? null : itemId);
@@ -29,7 +31,7 @@ export const FAQitem = ({ question, answer, itemId }: Props) => {
 
 	return (
 		<li
-			className={`${styles.faqItem} ${isOpen ? "" : "active"}`}
+			className={styles.faqItem}
 			onClick={handleToggle}>
 			<button className={styles.buttonQuestion}>
 				{question}

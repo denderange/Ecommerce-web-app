@@ -1,8 +1,8 @@
 import styles from "./CartItem.module.css";
 import { Link } from "react-router-dom";
-import { ButtonAddToCart, ButtonsCounter } from "..";
-import { TProductInCart } from "../../types/product.types";
-import { calculatePriceWithDiscount } from "../../lib/utils/calculatePrice";
+import { ButtonAddToCart, ButtonsCounter } from "../..";
+import { TProductInCart } from "../../../types/product.types";
+import { calculatePriceWithDiscount } from "../../../lib/utils/calculatePrice";
 
 type Props = {
 	cartItem: TProductInCart;

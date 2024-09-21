@@ -1,9 +1,9 @@
 import styles from "./Catalog.module.css";
 import { ChangeEvent, useState } from "react";
-import { useGetProductsQuery } from "../../store/apiSlice";
+import { productsApi, useGetProductsQuery } from "../../store/apiSlice";
 import { calculatePriceWithDiscount } from "../../lib/utils/calculatePrice";
 import { useDebounce } from "@uidotdev/usehooks";
-import { ProductCard, SearchInput } from "..";
+import { ProductCard, ProductCardSkeleton, SearchInput } from "..";
 
 export const Catalog = () => {
 	const [productsLimit, setProductsLimit] = useState<number>(12);
@@ -34,12 +34,22 @@ export const Catalog = () => {
 				<div className={styles.fetchError}>Failed to load product list</div>
 			)}
 			{isLoading ? (
-				<div>-=Loading......=-</div>
+				<ul className={styles.catalogList}>
+					{[...Array(12).keys()]?.map((_, index) => (
+						<li
+							key={index}
+							className={styles.catalogItem}>
+							<ProductCardSkeleton />
+						</li>
+					))}
+				</ul>
 			) : (
 				<>
 					<ul className={styles.catalogList}>
 						{data?.products?.map((product) => (
-							<li key={product.id}>
+							<li
+								key={product.id}
+								className={styles.catalogItem}>
 								<ProductCard
 									id={product.id}
 									imagePath={product.thumbnail}

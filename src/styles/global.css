@@ -24,6 +24,9 @@
 	--font-regular: 400;
 	--font-semibold: 600;
 	--font-bold: 700;
+
+	/* layout */
+	--layout-max-width: 1180px;
 }
 
 html,
@@ -96,4 +99,22 @@ button {
 
 .buttonLink:disabled {
 	background-color: var(--color-orange-white);
+}
+
+/* animations */
+.blink {
+	animation: blink 2s infinite;
+	-webkit-animation: blink 2s infinite;
+}
+
+@keyframes blink {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.3;
+	}
+	100% {
+		opacity: 1;
+	}
 }

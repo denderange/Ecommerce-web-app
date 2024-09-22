@@ -76,6 +76,8 @@ button {
 }
 
 .buttonLink {
+	height: 62px;
+	min-width: 177px;
 	color: var(--color-white);
 	font-size: var(--text-m);
 	font-weight: var(--font-regular);
@@ -98,6 +100,7 @@ button {
 }
 
 .buttonLink:disabled {
+	cursor: progress;
 	background-color: var(--color-orange-white);
 }
 

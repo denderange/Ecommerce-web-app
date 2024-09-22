@@ -4,8 +4,11 @@
 }
 
 .bigPicture {
-	width: 100%;
+	width: 520px;
 	height: 520px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	margin-bottom: 10px;
 	border: 1px solid var(--color-gray-200);
 	overflow: hidden;
@@ -17,20 +20,19 @@
 }
 
 .bigPicture img {
-	width: 100%;
 	height: 100%;
 	object-fit: cover;
 }
 
 .pictures {
 	display: flex;
+	overflow-x: auto;
 	justify-content: space-between;
+	gap: 20px;
+	padding-bottom: 20px;
 }
 
 .btnPicture {
-	overflow: hidden;
-	width: 70px;
-	height: 70px;
 	border: 1px solid var(--color-gray-200);
 	border-radius: 4px;
 	-webkit-border-radius: 4px;
@@ -51,10 +53,9 @@
 }
 
 .btnPicture img {
-	width: 100%;
-	height: 100%;
+	width: 70px;
+	height: 70px;
 	object-fit: cover;
-	overflow: hidden;
 }
 
 .btnPictureActive {
@@ -70,28 +71,18 @@
 
 	.bigPicture {
 		width: 100%;
-		height: 420px;
-	}
-
-	.pictures img {
-		width: 30px;
-		height: 30px;
+		max-height: 420px;
 	}
 }
 
 @media (max-width: 640px) {
-	/* .productSlider {
-		max-width: 220px;
-		max-height: 400px;
+	.productSlider {
+		width: 100%;
+		align-self: center;
 	}
 
 	.bigPicture {
 		width: 100%;
-		height: 220px;
+		max-height: 320px;
 	}
-
-	.pictures img {
-		width: 30px;
-		height: 30px;
-	} */
 }

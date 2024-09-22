@@ -32,12 +32,6 @@
 	-o-border-radius: 6px;
 }
 
-.btnShowMore {
-	display: block;
-	margin: 0px auto;
-	line-height: 22px;
-}
-
 .fetchError {
 	text-align: center;
 	color: var(--color-gray-500);

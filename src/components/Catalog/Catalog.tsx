@@ -1,9 +1,14 @@
 import styles from "./Catalog.module.css";
 import { ChangeEvent, useState } from "react";
-import { productsApi, useGetProductsQuery } from "../../store/apiSlice";
+import { useGetProductsQuery } from "../../store/apiSlice";
 import { calculatePriceWithDiscount } from "../../lib/utils/calculatePrice";
 import { useDebounce } from "@uidotdev/usehooks";
-import { ProductCard, ProductCardSkeleton, SearchInput } from "..";
+import {
+	ButtonLoadMore,
+	ProductCard,
+	ProductCardSkeleton,
+	SearchInput,
+} from "..";
 
 export const Catalog = () => {
 	const [productsLimit, setProductsLimit] = useState<number>(12);
@@ -11,7 +16,7 @@ export const Catalog = () => {
 	const [searchString, setSearchString] = useState<string>("");
 	const debouncedSearchString = useDebounce(searchString, 1000);
 
-	const { data, isLoading, isError } = useGetProductsQuery({
+	const { data, isLoading, isFetching, isError } = useGetProductsQuery({
 		searchQuery: debouncedSearchString,
 		productsLimit,
 	});
@@ -64,11 +69,10 @@ export const Catalog = () => {
 					</ul>
 
 					{data?.total! - productsLimit > 0 && (
-						<button
-							className={`buttonLink ${styles.btnShowMore}`}
-							onClick={() => setProductsLimit(productsLimit + 12)}>
-							Show more
-						</button>
+						<ButtonLoadMore
+							loading={isFetching}
+							handleClick={() => setProductsLimit(productsLimit + 12)}
+						/>
 					)}
 				</>
 			)}

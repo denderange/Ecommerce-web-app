@@ -29,6 +29,8 @@ export const ButtonsCounter = ({ size, quantity, showDelete }: Props) => {
 	return (
 		<div className={styles.counter}>
 			<button
+				type='button'
+				aria-label='decrease items amount in the cart'
 				disabled={productsAmount === 0}
 				onClick={decreaseItems}
 				className={`${size === "m" ? styles.btnSizeM : ""} ${styles.btnMinus}`}>
@@ -38,6 +40,8 @@ export const ButtonsCounter = ({ size, quantity, showDelete }: Props) => {
 				{productsAmount} {productsAmount === 1 ? "item" : "items"}
 			</span>
 			<button
+				type='button'
+				aria-label='increase items amount in the cart'
 				disabled={productsAmount === 0}
 				onClick={increaseItems}
 				className={`${size === "m" ? styles.btnSizeM : ""} ${styles.btnPlus}`}>

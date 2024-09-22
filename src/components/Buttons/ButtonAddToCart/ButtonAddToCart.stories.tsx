@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { ButtonAddToCart } from "./ButtonAddToCart";
-import { fn } from "@storybook/test";
+import { ButtonAddToCart } from "../..";
 
 const meta: Meta<typeof ButtonAddToCart> = {
 	component: ButtonAddToCart,
@@ -17,12 +16,8 @@ export const Icon: Story = {
 	},
 };
 
-export const Text = {
+export const Text: Story = {
 	args: {
 		variant: "text",
 	},
 };
-
-// export const ActionsData = {
-//   handleAddToCart: fn()
-// }

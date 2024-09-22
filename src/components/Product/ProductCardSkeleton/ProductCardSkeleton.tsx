@@ -3,7 +3,6 @@ import styles from "./ProductCardSkeleton.module.css";
 
 export const ProductCardSkeleton = () => {
 	return (
-		// <div className={styles.productContainer}>
 		<>
 			<div className={styles.productImage}>
 				<GridLoader
@@ -21,6 +20,5 @@ export const ProductCardSkeleton = () => {
 				<div className={`${styles.btn} blink`} />
 			</div>
 		</>
-		// </div>
 	);
 };

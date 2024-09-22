@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 exp.js
 *storybook.log
+storybook-static

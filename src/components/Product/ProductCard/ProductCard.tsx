@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { getQuantityInCart } from "../../../lib/utils/getQuantityInCart";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 type Props = {
 	id: number;
@@ -25,9 +27,10 @@ export const ProductCard = ({ id, imagePath, productName, price }: Props) => {
 
 			<Link to={`product/${id}`}>
 				<div className={styles.productImageContainer}>
-					<img
-						src={imagePath || blankImage}
+					<LazyLoadImage
 						alt={productName}
+						effect='blur'
+						src={imagePath || blankImage}
 						className={styles.productImage}
 					/>
 					<div className={styles.imgOverlay}>

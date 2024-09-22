@@ -1,6 +1,8 @@
 import styles from "./ProductSlider.module.css";
 import imgBlankSrc from "../../../assets/images/image-coming-soon-placeholder.webp";
 import { useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 type Props = {
 	images: string[];
@@ -13,9 +15,11 @@ export const ProductSlider = ({ images, imgAlt }: Props) => {
 	return (
 		<div className={styles.productSlider}>
 			<div className={styles.bigPicture}>
-				<img
-					src={images[bigImgUrl] || imgBlankSrc}
+				<LazyLoadImage
 					alt={imgAlt}
+					effect='blur'
+					src={images[bigImgUrl] || imgBlankSrc}
+					width='100%'
 				/>
 			</div>
 			{images.length > 1 && (

@@ -1,0 +1,10 @@
+.starsContainer {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	padding-left: 2px;
+}
+.star {
+	width: 15px;
+	height: 15px;
+}

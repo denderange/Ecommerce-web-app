@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+exp.js
+*storybook.log
+storybook-static

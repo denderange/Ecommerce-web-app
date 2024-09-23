@@ -1,0 +1,105 @@
+.faq {
+	color: var(--color-white);
+	background-color: var(--color-violet);
+}
+
+.faqContainer {
+	max-width: 1020px;
+	margin: 0px auto;
+	padding: 60px 20px;
+}
+
+.faqTitle {
+	font-weight: var(--font-bold);
+	font-size: var(--text-3xl);
+	line-height: 56px;
+	margin-bottom: 20px;
+}
+
+/* question items: */
+.faqItem {
+	cursor: pointer;
+	border-top: 1px solid var(--color-white);
+	color: var(--color-white);
+}
+
+.faqItem:last-child {
+	border-bottom: 1px solid var(--color-white);
+}
+
+.buttonQuestion {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: var(--color-white);
+	width: 100%;
+	padding: 25px 0px 25px 0px;
+	font-size: var(--text-xl);
+	font-weight: var(--font-regular);
+	transition: color 0.3s ease-in-out;
+	-webkit-transition: color 0.3s ease-in-out;
+	-moz-transition: color 0.3s ease-in-out;
+	-ms-transition: color 0.3s ease-in-out;
+	-o-transition: color 0.3s ease-in-out;
+}
+
+.buttonQuestion:hover {
+	color: var(--color-gray-200);
+}
+
+.iconClose {
+	max-width: 25px;
+	height: 25px;
+	transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+}
+
+.iconCloseActive {
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+}
+
+.iconClose:hover {
+	color: red;
+}
+
+.answerContainer {
+	overflow: hidden;
+	transition: height 0.2s ease-in-out;
+	-webkit-transition: height 0.2s ease-in-out;
+	-moz-transition: height 0.2s ease-in-out;
+	-ms-transition: height 0.2s ease-in-out;
+	-o-transition: height 0.2s ease-in-out;
+}
+
+.faqAnswer {
+	font-size: var(--text-m);
+	font-weight: var(--font-semibold);
+	line-height: 26px;
+	padding-top: 2px;
+	padding-bottom: 18px;
+	padding-right: 25px;
+	letter-spacing: 0.4px;
+}
+
+/* media */
+@media (max-width: 560px) {
+	.buttonQuestion {
+		padding: 15px 0px;
+		font-size: var(--text-l);
+		font-weight: var(--font-semibold);
+	}
+
+	.faqAnswer {
+		font-size: var(--text-m);
+		font-weight: normal;
+		line-height: normal;
+		letter-spacing: 0.4px;
+	}
+}

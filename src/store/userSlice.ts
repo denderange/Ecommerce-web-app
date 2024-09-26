@@ -4,7 +4,11 @@ import {
 	FetchArgs,
 	fetchBaseQuery,
 } from "@reduxjs/toolkit/query/react";
-import { UserResponseT, UserT } from "../types/user.types";
+import {
+	CurrentUserResponseT,
+	UserLoginResponseT,
+	UserT,
+} from "../types/user.types";
 
 interface ErrorT {
 	status: number;
@@ -21,7 +25,7 @@ export const userApi = createApi({
 	tagTypes: ["user"],
 
 	endpoints: (builder) => ({
-		loginUser: builder.mutation<UserResponseT, UserT>({
+		loginUser: builder.mutation<UserLoginResponseT, UserT>({
 			query: (data: UserT) => ({
 				url: "login",
 				method: "POST",
@@ -37,7 +41,7 @@ export const userApi = createApi({
 			}),
 		}),
 
-		getCurrentUser: builder.query({
+		getCurrentUser: builder.query<CurrentUserResponseT, string>({
 			query: (token: string) => ({
 				url: "me",
 				method: "GET",
@@ -45,6 +49,9 @@ export const userApi = createApi({
 					Authorization: `Bearer ${token}`,
 				},
 			}),
+			transformErrorResponse: (res) => {
+				return res.data;
+			},
 		}),
 	}),
 });

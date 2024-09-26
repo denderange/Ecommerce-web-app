@@ -18,6 +18,7 @@ export const productsApi = createApi({
 			query: (arg: { searchQuery: string; productsLimit: number }) =>
 				`search?q=${arg.searchQuery}&limit=${arg.productsLimit}&skip=0`,
 		}),
+
 		getProductById: builder.query<IProduct, number>({
 			query: (productId: number) => productId.toString(),
 		}),

@@ -3,7 +3,7 @@ export type UserT = {
 	password: string;
 };
 
-export type UserResponseT = {
+export type UserLoginResponseT = {
 	id: number;
 	username: string;
 	email: string;
@@ -13,4 +13,11 @@ export type UserResponseT = {
 	image: string;
 	accessToken: string;
 	refreshToken: string;
+};
+
+export type CurrentUserResponseT = {
+	id: number;
+	username: string;
+	firstName: string;
+	lastName: string;
 };

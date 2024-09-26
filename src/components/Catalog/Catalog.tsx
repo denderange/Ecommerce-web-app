@@ -12,7 +12,6 @@ import {
 
 export const Catalog = () => {
 	const [productsLimit, setProductsLimit] = useState<number>(12);
-
 	const [searchString, setSearchString] = useState<string>("");
 	const debouncedSearchString = useDebounce(searchString, 1000);
 

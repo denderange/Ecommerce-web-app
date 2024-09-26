@@ -14,7 +14,7 @@ export const Login = () => {
 
 	const handleSubmit = async (event: React.FormEvent) => {
 		event.preventDefault();
-		console.log("from useState: ", username, password);
+		setErrorLoginMessage("");
 
 		const res = await loginUser({
 			username,

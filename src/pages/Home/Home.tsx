@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Catalog, FAQ, Hero } from "../../components";
 import { useAppDispatch } from "../../store/store";
 import { getCartByUserId } from "../../store/cartSlice";
@@ -6,31 +6,45 @@ import { useGetCurrentUserQuery } from "../../store/userSlice";
 import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
+	// const userId = 23; // hardcoded for now
+	// const [userId, setUserId] = useState<number>();
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
 	const token = window.localStorage.getItem("user") || "";
-
-	console.log("token: " + JSON.parse(token));
-	console.log("token *: " + token);
 
 	if (!token || token === "") {
 		navigate("/login");
 	}
 
-	// const [getCurrentUser, { isLoading }] = useGetCurrentUserQuery(
-	// 	JSON.parse(token)
-	// );
+	const {
+		data: user,
+		error,
+		isSuccess,
+	} = useGetCurrentUserQuery(JSON.parse(token));
 
-	const userId = 23; // hardcoded for now
-	const fetchCart = async (userId: number) => {
-		try {
-			await dispatch(getCartByUserId(userId)).unwrap();
-		} catch (err) {}
-	};
+	if (isSuccess) {
+		// console.log("data :" + user.username);
+		console.log("data :" + user.id);
+		// dispatch(getCartByUserId(user.id));
+		// setUserId(user.id);
+		dispatch(getCartByUserId(23)).unwrap();
+	}
 
-	useEffect(() => {
-		fetchCart(userId);
-	}, [userId]);
+	if (error && "message" in error) {
+		console.log("error message: " + error.message);
+	}
+
+	// const fetchCart = async (userId: number) => {
+	// 	try {
+	// 		await dispatch(getCartByUserId(userId)).unwrap();
+	// 	} catch (err) {}
+	// };
+
+	// useEffect(() => {
+	// 	if (userId) {
+	// 		fetchCart(userId);
+	// 	}
+	// }, [userId]);
 
 	return (
 		<>

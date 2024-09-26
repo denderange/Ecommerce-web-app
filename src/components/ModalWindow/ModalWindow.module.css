@@ -1,0 +1,24 @@
+.overlay {
+	position: fixed;
+	z-index: 999;
+	inset: 0;
+	background-color: rgba(53, 53, 53, 50%);
+}
+.modal {
+	max-width: max-content;
+	max-height: max-content;
+	padding: 1px 20px;
+	margin: 60px auto;
+	background-color: var(--color-white);
+	font-size: var(--text-l);
+	text-align: center;
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-ms-border-radius: 6px;
+	-o-border-radius: 6px;
+}
+
+.modal div {
+	margin-bottom: 40px;
+}

@@ -17,3 +17,4 @@ export { FAQ } from "./FAQ/FAQ";
 export { CartItem } from "./CartItem/CartItem";
 export { CartSummary } from "./CartSummary/CartSummary";
 export { PageTitle } from "./PageTitle/PageTitle";
+export { ModalWindow } from "./ModalWindow/ModalWindow";

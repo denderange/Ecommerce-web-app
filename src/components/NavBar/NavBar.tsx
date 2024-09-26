@@ -1,12 +1,13 @@
 import styles from "./NavBar.module.css";
 import { Link } from "react-router-dom";
 import { LinkCart } from "..";
-import { useAuth } from "../../lib/hooks/useAuth";
 
-export const NavBar = () => {
-	const currentUser = "Johnson Smith";
-	const { logout } = useAuth();
+type Props = {
+	firstName: string | undefined;
+	lastName: string | undefined;
+};
 
+export const NavBar = ({ firstName, lastName }: Props) => {
 	return (
 		<nav>
 			<ul className={styles.navList}>
@@ -19,12 +20,11 @@ export const NavBar = () => {
 				<li>
 					<LinkCart />
 				</li>
-				<li>
-					<Link to='#!'>{currentUser}</Link>
-				</li>
-				<li>
-					<button onClick={() => logout()}>logout</button>
-				</li>
+				{(firstName || lastName) && (
+					<li>
+						{firstName} {lastName}
+					</li>
+				)}
 			</ul>
 		</nav>
 	);

@@ -1,6 +1,6 @@
 import styles from "./Catalog.module.css";
 import { ChangeEvent, useState } from "react";
-import { useGetProductsQuery } from "../../store/apiSlice";
+import { useGetProductsQuery } from "../../store/productSlice";
 import { calculatePriceWithDiscount } from "../../lib/utils/calculatePrice";
 import { useDebounce } from "@uidotdev/usehooks";
 import {

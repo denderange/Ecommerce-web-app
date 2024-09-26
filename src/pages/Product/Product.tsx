@@ -7,7 +7,7 @@ import {
 	ProductSlider,
 } from "../../components";
 import { Link, useParams } from "react-router-dom";
-import { useGetProductByIdQuery } from "../../store/apiSlice";
+import { useGetProductByIdQuery } from "../../store/productSlice";
 import { calculatePriceWithDiscount } from "../../lib/utils/calculatePrice";
 import { getQuantityInCart } from "../../lib/utils/getQuantityInCart";
 import { NotFound } from "../NotFound/NotFound";

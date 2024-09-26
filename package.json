@@ -1,8 +1,9 @@
 {
 	"name": "t1-js-react-stream-8",
 	"private": true,
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"type": "module",
+	"author": "Dennis Polukaroff",
 	"homepage": "https://denderange.github.io/t1-js-react-stream-8",
 	"scripts": {
 		"dev": "vite",

@@ -1,0 +1,78 @@
+.contentWrapper {
+	padding-bottom: 48px;
+}
+
+.header {
+	background-color: var(--color-violet);
+	padding: 23px 0px;
+}
+
+.logo {
+	color: var(--color-white);
+	font-weight: var(--font-bold);
+	font-size: var(--text-2xl);
+	line-height: 44px;
+}
+
+.title {
+	text-align: center;
+	font-size: var(--text-3xl);
+	font-weight: var(--font-bold);
+	line-height: 56px;
+	margin-top: 140px;
+}
+
+.signInWrapper {
+	max-width: 600px;
+	padding: 0px 60px 60px 60px;
+	margin: 48px auto 0px auto;
+	border: 1px solid var(--color-gray-500);
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+}
+
+.errorLoginText {
+	min-height: 56px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: var(--text-l);
+	font-weight: var(--font-bold);
+	color: var(--color-orange);
+}
+
+.formAuth {
+	display: flex;
+	flex-direction: column;
+	gap: 58px;
+}
+
+.formInput {
+	background: var(--color-gray-100);
+	border-radius: 4px;
+	padding: 20px;
+	width: 100%;
+	border: 1px solid transparent;
+	outline: 0px;
+	color: var(--color-gray-900);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+}
+
+.formInput::placeholder {
+	color: var(--color-gray-500);
+	font-size: var(--text-m);
+}
+
+.btnSubmit {
+	max-width: max-content;
+	margin: 0px auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

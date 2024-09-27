@@ -8,19 +8,42 @@ interface IProductsData {
 
 export const productsApi = createApi({
 	reducerPath: "productsApi",
-	baseQuery: fetchBaseQuery({ baseUrl: "https://dummyjson.com/products/" }),
+	baseQuery: fetchBaseQuery({
+		baseUrl: "https://dummyjson.com/auth/products/",
+	}),
 	tagTypes: ["products"],
+
 	endpoints: (builder) => ({
 		getProducts: builder.query<
 			IProductsData,
-			{ searchQuery: string; productsLimit: number }
+			{ searchQuery: string; productsLimit: number; token: string }
 		>({
-			query: (arg: { searchQuery: string; productsLimit: number }) =>
-				`search?q=${arg.searchQuery}&limit=${arg.productsLimit}&skip=0`,
+			query: (args: {
+				searchQuery: string;
+				productsLimit: number;
+				token: string;
+			}) => ({
+				url: `search?q=${args.searchQuery}&limit=${args.productsLimit}&skip=0`,
+				method: "GET",
+				headers: {
+					Authorization: `Bearer ${JSON.parse(args.token)}`,
+					"Content-Type": "application/json",
+				},
+			}),
 		}),
 
-		getProductById: builder.query<IProduct, number>({
-			query: (productId: number) => productId.toString(),
+		getProductById: builder.query<
+			IProduct,
+			{ productId: number; token: string }
+		>({
+			query: (args: { productId: number; token: string }) => ({
+				url: `${args.productId.toString()}`,
+				method: "GET",
+				headers: {
+					Authorization: `Bearer ${JSON.parse(args.token)}`,
+					"Content-Type": "application/json",
+				},
+			}),
 		}),
 	}),
 });

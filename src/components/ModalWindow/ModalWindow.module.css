@@ -2,7 +2,7 @@
 	position: fixed;
 	z-index: 999;
 	inset: 0;
-	background-color: rgba(53, 53, 53, 50%);
+	background-color: var(--color-gray-200);
 }
 .modal {
 	max-width: max-content;

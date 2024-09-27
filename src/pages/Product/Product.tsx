@@ -6,7 +6,7 @@ import {
 	ProductRating,
 	ProductSlider,
 } from "../../components";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../store/productSlice";
 import { calculatePriceWithDiscount } from "../../lib/utils/calculatePrice";
 import { getQuantityInCart } from "../../lib/utils/getQuantityInCart";
@@ -16,14 +16,22 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 
 export const Product = () => {
+	const navigate = useNavigate();
+	const token = window.localStorage.getItem("user") || "";
+
+	if (!token || token === "") {
+		navigate("/login", { replace: true });
+	}
+
 	const { id } = useParams();
+	const { cart } = useSelector((state: RootState) => state.cart);
+	const itemsQuantityInCart = getQuantityInCart(cart, Number(id));
+
 	const {
 		data: product,
 		isError,
 		isLoading,
-	} = useGetProductByIdQuery(Number(id));
-	const { cart } = useSelector((state: RootState) => state.cart);
-	const itemsQuantityInCart = getQuantityInCart(cart, Number(id));
+	} = useGetProductByIdQuery({ productId: Number(id), token });
 
 	// !!! TODO: implement ability to add product in user's cart ==>
 	const handleAddToCart = () => {};

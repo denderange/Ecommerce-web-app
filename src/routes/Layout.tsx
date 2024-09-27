@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ScrollToHashElement from "@cascadia-code/scroll-to-hash-element";
 import { Outlet, useNavigate } from "react-router-dom";
-import { Footer, Header, ModalWindow } from "../components";
+import { Footer, Header, ModalWindow, OverlayCheckLogin } from "../components";
 import { useAppDispatch } from "../store/store";
 import { useGetCurrentUserQuery } from "../store/userSlice";
 import { getCartByUserId } from "../store/cartSlice";
@@ -15,12 +15,13 @@ export const Layout = () => {
 	if (!token || token === "") {
 		navigate("/login", { replace: true });
 	}
-
+	JSON.parse(token);
 	const {
 		data: user,
 		error,
 		isSuccess,
-	} = useGetCurrentUserQuery(JSON.parse(token));
+		isLoading,
+	} = useGetCurrentUserQuery(token);
 
 	const handleCloseModal = () => {
 		setIsOpen(false);
@@ -29,7 +30,7 @@ export const Layout = () => {
 
 	useEffect(() => {
 		if (isSuccess) {
-			dispatch(getCartByUserId(user.id));
+			dispatch(getCartByUserId({ userId: user.id, token }));
 		}
 
 		if (error && "message" in error) {
@@ -41,6 +42,8 @@ export const Layout = () => {
 
 	return (
 		<>
+			{isLoading && <OverlayCheckLogin />}
+
 			<ScrollToHashElement
 				behavior='smooth'
 				inline='start'

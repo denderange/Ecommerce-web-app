@@ -3,9 +3,20 @@ import { CartT } from "../types/cart.types";
 
 export const getCartByUserId = createAsyncThunk(
 	"cart/userId",
-	async (userId: number, thunkAPI) => {
+	async (args: { userId: number; token: string }, thunkAPI) => {
 		try {
-			const res = await fetch(`https://dummyjson.com/carts/user/${userId}`);
+			// const res = await fetch(`https://dummyjson.com/carts/user/${userId}`);
+			const res = await fetch(
+				`https://dummyjson.com/auth/carts/user/${args.userId}`,
+				{
+					method: "GET",
+					headers: {
+						Authorization: `Bearer ${JSON.parse(args.token)}`,
+						"Content-Type": "application/json",
+					},
+				}
+			);
+
 			return await res.json();
 		} catch (error) {
 			return thunkAPI.rejectWithValue(error);

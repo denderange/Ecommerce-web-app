@@ -9,8 +9,16 @@ import {
 	ProductCardSkeleton,
 	SearchInput,
 } from "..";
+import { useNavigate } from "react-router-dom";
 
 export const Catalog = () => {
+	const navigate = useNavigate();
+	const token = window.localStorage.getItem("user") || "";
+
+	if (!token || token === "") {
+		navigate("/login", { replace: true });
+	}
+
 	const [productsLimit, setProductsLimit] = useState<number>(12);
 	const [searchString, setSearchString] = useState<string>("");
 	const debouncedSearchString = useDebounce(searchString, 1000);
@@ -18,6 +26,7 @@ export const Catalog = () => {
 	const { data, isLoading, isFetching, isError } = useGetProductsQuery({
 		searchQuery: debouncedSearchString,
 		productsLimit,
+		token,
 	});
 
 	const handleSearchInput = (

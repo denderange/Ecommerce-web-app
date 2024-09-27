@@ -46,7 +46,7 @@ export const userApi = createApi({
 				url: "me",
 				method: "GET",
 				headers: {
-					Authorization: `Bearer ${token}`,
+					Authorization: `Bearer ${JSON.parse(token)}`,
 				},
 			}),
 			transformErrorResponse: (res) => {

@@ -9,8 +9,6 @@ type Props = {
 };
 
 export const CartItem = ({ cartItem }: Props) => {
-	const addToCart = () => {};
-
 	const priceWithDiscount = calculatePriceWithDiscount(
 		cartItem.price,
 		cartItem.discountPercentage
@@ -44,10 +42,11 @@ export const CartItem = ({ cartItem }: Props) => {
 						size='s'
 						showDelete={true}
 						quantity={cartItem.quantity}
+						cartItemId={cartItem.id}
 					/>
 				) : (
 					<ButtonAddToCart
-						handleAddToCart={addToCart}
+						cartItemId={cartItem.id}
 						variant='icon'
 					/>
 				)}

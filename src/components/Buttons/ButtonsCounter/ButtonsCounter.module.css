@@ -40,8 +40,19 @@
 	-o-border-radius: 5px;
 }
 
+.btnPlus:disabled,
+.btnMinus:disabled {
+	cursor: progress;
+	background-color: var(--color-orange-white);
+}
+
 .btnPlus:hover {
 	background-color: var(--color-orange-dark);
+}
+
+.btnMinus:disabled:hover,
+.btnPlus:disabled:hover {
+	background-color: var(--color-orange-white);
 }
 
 .btnSizeM {
@@ -52,6 +63,10 @@
 .btnSizeM + span {
 	font-size: 16px;
 	width: 114px;
+}
+
+.btnNotActive:disabled {
+	cursor: not-allowed;
 }
 
 /* media */

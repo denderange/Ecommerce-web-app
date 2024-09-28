@@ -4,7 +4,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { Footer, Header, ModalWindow, OverlayCheckLogin } from "../components";
 import { useAppDispatch } from "../store/store";
 import { useGetCurrentUserQuery } from "../store/userSlice";
-import { getCartByUserId } from "../store/cartSlice";
+import { getCartByUserId } from "../store/cartActions";
 
 export const Layout = () => {
 	const [modalIsOpen, setIsOpen] = useState(false);
@@ -15,10 +15,10 @@ export const Layout = () => {
 	if (!token || token === "") {
 		navigate("/login", { replace: true });
 	}
-	JSON.parse(token);
+
 	const {
 		data: user,
-		error,
+		error: errorUser,
 		isSuccess,
 		isLoading,
 	} = useGetCurrentUserQuery(token);
@@ -29,16 +29,16 @@ export const Layout = () => {
 	};
 
 	useEffect(() => {
-		if (isSuccess) {
-			dispatch(getCartByUserId({ userId: user.id, token }));
-		}
-
-		if (error && "message" in error) {
-			if (error.message === "Token Expired!") {
+		if (errorUser && "message" in errorUser) {
+			if (errorUser.message === "Token Expired!") {
 				setIsOpen(true);
 			}
 		}
-	}, [user, error]);
+
+		if (isSuccess) {
+			dispatch(getCartByUserId({ userId: user.id, token }));
+		}
+	}, [user, errorUser, isLoading]);
 
 	return (
 		<>

@@ -65,10 +65,6 @@
 	-o-transform: rotate(-45deg);
 }
 
-.iconClose:hover {
-	color: red;
-}
-
 .answerContainer {
 	overflow: hidden;
 	transition: height 0.2s ease-in-out;

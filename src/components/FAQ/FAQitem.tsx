@@ -1,6 +1,6 @@
+import styles from "./FAQ.module.css";
 import { useState, useRef, useEffect } from "react";
 import IconClose from "../../assets/icons/icon-cross.svg?react";
-import styles from "./FAQ.module.css";
 import { getRefValue } from "../../lib/hooks/getRefValue";
 
 type Props = {

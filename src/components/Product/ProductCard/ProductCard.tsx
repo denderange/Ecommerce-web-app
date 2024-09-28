@@ -13,13 +13,18 @@ type Props = {
 	imagePath: string;
 	productName: string;
 	price: number;
+	stock: number;
 };
 
-export const ProductCard = ({ id, imagePath, productName, price }: Props) => {
+export const ProductCard = ({
+	id,
+	imagePath,
+	productName,
+	price,
+	stock,
+}: Props) => {
 	const { cart } = useSelector((state: RootState) => state.cart);
 	const quantityInCart = getQuantityInCart(cart, id);
-
-	const handleAddToCart = () => {};
 
 	return (
 		<>
@@ -52,13 +57,15 @@ export const ProductCard = ({ id, imagePath, productName, price }: Props) => {
 				<div className={styles.buttons}>
 					{quantityInCart > 0 ? (
 						<ButtonsCounter
+							cartItemId={id}
 							quantity={quantityInCart}
 							size='s'
+							inStock={stock}
 							showDelete={false}
 						/>
 					) : (
 						<ButtonAddToCart
-							handleAddToCart={handleAddToCart}
+							cartItemId={id}
 							variant='icon'
 						/>
 					)}

@@ -7,6 +7,7 @@ export type TProductInCart = {
 	discountPercentage: number;
 	discountedTotal: number;
 	thumbnail: string;
+	discountedPrice: number;
 };
 
 export type TReview = {

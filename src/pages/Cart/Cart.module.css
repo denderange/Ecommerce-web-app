@@ -8,6 +8,10 @@
 	margin-bottom: 54px;
 }
 
+.isLoadingSpinner {
+	margin: 60px auto;
+}
+
 .cartWrapper {
 	display: flex;
 	gap: 20px;
@@ -55,6 +59,5 @@
 
 	.cartItems {
 		width: 100%;
-		/* padding: 20px 40px; */
 	}
 }

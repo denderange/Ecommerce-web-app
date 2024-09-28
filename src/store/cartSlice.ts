@@ -1,33 +1,11 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { CartT } from "../types/cart.types";
-
-export const getCartByUserId = createAsyncThunk(
-	"cart/userId",
-	async (args: { userId: number; token: string }, thunkAPI) => {
-		try {
-			// const res = await fetch(`https://dummyjson.com/carts/user/${userId}`);
-			const res = await fetch(
-				`https://dummyjson.com/auth/carts/user/${args.userId}`,
-				{
-					method: "GET",
-					headers: {
-						Authorization: `Bearer ${JSON.parse(args.token)}`,
-						"Content-Type": "application/json",
-					},
-				}
-			);
-
-			return await res.json();
-		} catch (error) {
-			return thunkAPI.rejectWithValue(error);
-		}
-	}
-);
+import { getCartByUserId, updateCart } from "./cartActions";
 
 interface CartState {
 	cart: CartT[];
 	loading: "" | "pending" | "fulfilled" | "rejected";
-	error: string | null | undefined;
+	error: null | string | undefined;
 }
 
 const initialState = {
@@ -50,6 +28,17 @@ export const cartSlice = createSlice({
 				state.cart[0] = action.payload.carts[0];
 			})
 			.addCase(getCartByUserId.rejected, (state, action) => {
+				state.loading = "rejected";
+				state.error = action.error.message;
+			})
+			.addCase(updateCart.pending, (state) => {
+				state.loading = "pending";
+			})
+			.addCase(updateCart.fulfilled, (state, action) => {
+				state.loading = "fulfilled";
+				state.cart[0].products = action.payload.products;
+			})
+			.addCase(updateCart.rejected, (state, action) => {
 				state.loading = "rejected";
 				state.error = action.error.message;
 			});

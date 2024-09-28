@@ -22,7 +22,6 @@
 	color: var(--color-white);
 	font-size: var(--text-m);
 	font-weight: var(--font-regolar);
-	/* padding: 22px 50px; */
 	border-radius: 4px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -33,6 +32,12 @@
 .btnImg:hover,
 .btnText:hover {
 	background-color: var(--color-orange-dark);
+}
+
+.btnImg:disabled,
+.btnText:disabled {
+	cursor: progress;
+	background-color: var(--color-orange-white);
 }
 
 .image {

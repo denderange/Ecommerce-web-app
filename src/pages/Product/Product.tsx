@@ -14,6 +14,7 @@ import { NotFound } from "../NotFound/NotFound";
 import { APP_TITLE } from "../../constants/appTitle";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
+import { ClockLoader } from "react-spinners";
 
 export const Product = () => {
 	const navigate = useNavigate();
@@ -24,7 +25,9 @@ export const Product = () => {
 	}
 
 	const { id } = useParams();
-	const { cart } = useSelector((state: RootState) => state.cart);
+	const { cart, error: errorCart } = useSelector(
+		(state: RootState) => state.cart
+	);
 	const itemsQuantityInCart = getQuantityInCart(cart, Number(id));
 
 	const {
@@ -33,16 +36,18 @@ export const Product = () => {
 		isLoading,
 	} = useGetProductByIdQuery({ productId: Number(id), token });
 
-	// !!! TODO: implement ability to add product in user's cart ==>
-	const handleAddToCart = () => {};
-
 	if (isError) {
 		return <NotFound />;
 	}
 
 	return (
 		<div className={`container ${styles.productDetails}`}>
-			{isLoading && <div>-=Loading.......=-</div>}
+			{isLoading && (
+				<div className={styles.isLoadingSpinner}>
+					<ClockLoader />
+				</div>
+			)}
+
 			{product && (
 				<>
 					<PageTitle title={`${product.title} | ${APP_TITLE}`} />
@@ -102,12 +107,14 @@ export const Product = () => {
 								{itemsQuantityInCart ? (
 									<ButtonsCounter
 										size='m'
+										cartItemId={product.id}
 										quantity={itemsQuantityInCart}
+										inStock={product.stock}
 										showDelete={false}
 									/>
 								) : (
 									<ButtonAddToCart
-										handleAddToCart={handleAddToCart}
+										cartItemId={product.id}
 										variant='text'
 									/>
 								)}

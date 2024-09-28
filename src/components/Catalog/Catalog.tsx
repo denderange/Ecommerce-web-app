@@ -65,6 +65,7 @@ export const Catalog = () => {
 								className={styles.catalogItem}>
 								<ProductCard
 									id={product.id}
+									stock={product.stock}
 									imagePath={product.thumbnail}
 									productName={product.title}
 									price={calculatePriceWithDiscount(

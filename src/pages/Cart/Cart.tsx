@@ -4,13 +4,17 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 
 export const Cart = () => {
-	const { cart, loading } = useSelector((state: RootState) => state.cart);
+	const { cart, error } = useSelector((state: RootState) => state.cart);
+
+	if (error === "Token Expired!") {
+		console.log("token expired error.....");
+	}
 
 	return (
 		<div className={`container ${styles.cart}`}>
 			<h1 className={styles.title}>My cart</h1>
 
-			{cart[0] && loading === "fulfilled" ? (
+			{cart[0]?.products ? (
 				<div className={styles.cartWrapper}>
 					<div className={styles.cartItems}>
 						{cart[0]?.products.map((product) => (
@@ -21,11 +25,7 @@ export const Cart = () => {
 						))}
 					</div>
 
-					<CartSummary
-						itemsAmount={cart[0]?.totalProducts}
-						priceWithoutDiscount={cart[0].total}
-						priceTotal={cart[0].discountedTotal}
-					/>
+					<CartSummary />
 				</div>
 			) : (
 				<div className={styles.noItems}>No items</div>

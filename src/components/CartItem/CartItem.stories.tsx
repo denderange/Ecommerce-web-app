@@ -30,6 +30,7 @@ export const DefaultState: Story = {
 			total: 20.98,
 			discountPercentage: 0,
 			discountedTotal: 20.98,
+			discountedPrice: 22.4,
 			thumbnail:
 				"https://cdn.pixabay.com/photo/2024/08/24/18/49/spurred-turtle-8994997_1280.jpg",
 		},

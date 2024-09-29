@@ -21,6 +21,7 @@ export const Catalog = () => {
 
 	const [productsLimit, setProductsLimit] = useState<number>(12);
 	const [searchString, setSearchString] = useState<string>("");
+	const [errorLoadingMore, setErrorLoadingMore] = useState(false);
 	const debouncedSearchString = useDebounce(searchString, 1000);
 
 	const { data, isLoading, isFetching, isError } = useGetProductsQuery({
@@ -35,13 +36,26 @@ export const Catalog = () => {
 		setSearchString(e.currentTarget.value);
 	};
 
+	const handleClickButtonLoadMore = () => {
+		setErrorLoadingMore(false);
+		setProductsLimit(productsLimit + 12);
+
+		if (isError) {
+			setErrorLoadingMore(true);
+		}
+	};
+
 	return (
 		<section
 			id='CATALOG'
 			className={`container ${styles.catalog}`}>
 			<h2 className={styles.catalogTitle}>Catalog</h2>
 
-			<SearchInput handleSearch={(e: any) => handleSearchInput(e)} />
+			<SearchInput
+				handleSearch={(
+					e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+				) => handleSearchInput(e)}
+			/>
 
 			{isError && (
 				<div className={styles.fetchError}>Failed to load product list</div>
@@ -77,10 +91,16 @@ export const Catalog = () => {
 						))}
 					</ul>
 
+					{errorLoadingMore && (
+						<div className={styles.errorLoadingMore}>
+							There was an error loading items, please try again
+						</div>
+					)}
+
 					{data?.total! - productsLimit > 0 && (
 						<ButtonLoadMore
 							loading={isFetching}
-							handleClick={() => setProductsLimit(productsLimit + 12)}
+							handleClick={handleClickButtonLoadMore}
 						/>
 					)}
 				</>

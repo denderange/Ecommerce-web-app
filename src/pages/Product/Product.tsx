@@ -25,9 +25,7 @@ export const Product = () => {
 	}
 
 	const { id } = useParams();
-	const { cart, error: errorCart } = useSelector(
-		(state: RootState) => state.cart
-	);
+	const { cart } = useSelector((state: RootState) => state.cart);
 	const itemsQuantityInCart = getQuantityInCart(cart, Number(id));
 
 	const {
@@ -88,14 +86,14 @@ export const Product = () => {
 
 						<div className={styles.bottomActions}>
 							<div className={styles.priceAndDiscount}>
-								<b>${product.price}</b>
-								<span>
+								<b>
 									$
 									{calculatePriceWithDiscount(
 										product.price,
 										product.discountPercentage
 									)}
-								</span>
+								</b>
+								<span>${product.price}</span>
 							</div>
 
 							<div className={styles.discountAndButtons}>

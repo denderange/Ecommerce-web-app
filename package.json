@@ -15,7 +15,7 @@
 		"chromatic": "npx chromatic --project-token=chpt_1fc8af9d529dd2c",
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build",
-		"test": "vitest",
+		"test:unit": "vitest",
 		"test:ui": "vitest --ui"
 	},
 	"dependencies": {

@@ -46,6 +46,7 @@ export const ButtonAddToCart = ({
 
 	return (
 		<button
+			data-testid='buttonAddToCart'
 			disabled={loading === "pending"}
 			onClick={handleAddToCart}
 			className={`${variant === "icon" ? styles.btnImg : styles.btnText}`}>

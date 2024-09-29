@@ -1,7 +1,7 @@
 import styles from "./ModalWindow.module.css";
 import Modal from "react-modal";
 
-Modal.setAppElement("#root");
+Modal.setAppElement(document.body);
 
 type Props = {
 	modalIsOpen: boolean;

@@ -14,6 +14,7 @@ export const ButtonLoadMore = ({
 }: Props) => {
 	return (
 		<button
+			data-testid='buttonLoadMore'
 			onClick={handleClick}
 			disabled={loading}
 			className={`buttonLink ${styles.btnShowMore}`}>

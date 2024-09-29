@@ -4,10 +4,13 @@ import starEmpty from "../../../assets/icons/star-empty.svg";
 
 export const ProductRating = ({ rating }: { rating: number }) => {
 	return (
-		<div className={styles.starsContainer}>
+		<div
+			className={styles.starsContainer}
+			data-testid='stars-container'>
 			{/* colored stars */}
 			{[...Array(rating)].map((_, index) => (
 				<img
+					data-testid='colored-star'
 					key={index}
 					src={starFilled}
 					alt=''
@@ -17,6 +20,7 @@ export const ProductRating = ({ rating }: { rating: number }) => {
 			{/* gray stars */}
 			{[...Array(5 - rating)].map((_, index) => (
 				<img
+					data-testid='gray-star'
 					key={index}
 					src={starEmpty}
 					alt=''

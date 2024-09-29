@@ -2,13 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 import { CartT } from "../types/cart.types";
 import { getCartByUserId, updateCart } from "./cartActions";
 
-interface CartState {
+export interface CartState {
 	cart: CartT[];
 	loading: "" | "pending" | "fulfilled" | "rejected";
 	error: null | string | undefined;
 }
 
-const initialState = {
+export const initialState = {
 	cart: [],
 	loading: "",
 	error: null,

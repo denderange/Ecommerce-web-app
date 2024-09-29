@@ -1,0 +1,17 @@
+.overlayWrapper {
+	position: fixed;
+	z-index: 900;
+	inset: 0;
+	background-color: var(--color-white);
+}
+
+.content {
+	width: max-content;
+	margin: 60px auto;
+	text-align: center;
+}
+
+.content p {
+	font-size: var(--text-l);
+	margin-bottom: 60px;
+}

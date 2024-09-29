@@ -1,0 +1,123 @@
+:root {
+	/* colors */
+	--color-white: #ffffff;
+	--color-gray-100: #f6f6f6;
+	--color-gray-200: #d5d5d5;
+	--color-gray-500: #b2b5bb;
+	--color-gray-600: #6d727b;
+	--color-gray-900: #444b58;
+
+	--color-violet: #484283;
+	--color-orange: #f14f4f;
+	--color-orange-dark: #8c2828;
+	--color-orange-white: #f8afaf;
+
+	/* font size */
+	--text-s: 14px;
+	--text-m: 16px;
+	--text-l: 18px;
+	--text-xl: 24px;
+	--text-2xl: 30px;
+	--text-3xl: 36px;
+
+	/* font weight */
+	--font-regular: 400;
+	--font-semibold: 600;
+	--font-bold: 700;
+
+	/* layout */
+	--layout-max-width: 1180px;
+}
+
+html,
+body,
+#root {
+	height: 100%;
+}
+
+body {
+	font-family: "Jost", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: var(--font-regular);
+	font-style: normal;
+	background-color: var(--color-white);
+	color: var(--color-gray-900);
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	width: 100%;
+	flex: 1;
+}
+
+ul {
+	list-style: none;
+}
+
+button {
+	cursor: pointer;
+	background: transparent;
+	transition: background-color 0.3s ease-in-out;
+	-webkit-transition: background-color 0.3s ease-in-out;
+	-moz-transition: background-color 0.3s ease-in-out;
+	-ms-transition: background-color 0.3s ease-in-out;
+	-o-transition: background-color 0.3s ease-in-out;
+}
+
+.container {
+	max-width: 1220px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: 0px auto;
+}
+
+.buttonLink {
+	height: 62px;
+	min-width: 177px;
+	color: var(--color-white);
+	font-size: var(--text-m);
+	font-weight: var(--font-regular);
+	background-color: var(--color-orange);
+	padding: 20px 50px;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	transition: background-color 0.3s ease-in-out;
+	-webkit-transition: background-color 0.3s ease-in-out;
+	-moz-transition: background-color 0.3s ease-in-out;
+	-ms-transition: background-color 0.3s ease-in-out;
+	-o-transition: background-color 0.3s ease-in-out;
+}
+
+.buttonLink:hover {
+	background-color: var(--color-orange-dark);
+}
+
+.buttonLink:disabled {
+	cursor: progress;
+	background-color: var(--color-orange-white);
+}
+
+/* animations */
+.blink {
+	animation: blink 2s infinite;
+	-webkit-animation: blink 2s infinite;
+}
+
+@keyframes blink {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.3;
+	}
+	100% {
+		opacity: 1;
+	}
+}

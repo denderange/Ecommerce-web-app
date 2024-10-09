@@ -12,10 +12,9 @@ to start storybook:
 ***
 - live Demo: [https://expensive-beam.surge.sh/](https://alert-rub.surge.sh/)
 
-Use credentials to login:
-
-• username: oliviaw
-• password: oliviawpass
+# Use credentials to login:
+# username: oliviaw
+# password: oliviawpass
 
 see https://dummyjson.com/users
 

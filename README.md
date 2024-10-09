@@ -10,10 +10,17 @@ to start storybook:
 - npm run storybook
   
 ***
+- live Demo: [https://expensive-beam.surge.sh/](https://alert-rub.surge.sh/)
 
---- Task #1 live Demo: https://expensive-beam.surge.sh/
+Use credentials to login:
+
+username: oliviaw
+password: oliviawpass
+
+see https://dummyjson.com/users
+
 ***
---- Task #2 live Demo: https://t1-js-react-stream-8-task2.onrender.com/
 
---- Task #2 storybook: https://66f025f3affee274d19313df-eknafrmotw.chromatic.com/
+storybook: https://66f025f3affee274d19313df-eknafrmotw.chromatic.com/
 
+![Screenshot_1](https://github.com/user-attachments/assets/e7a98fdf-a755-4236-9d0a-e774fa8e3688)

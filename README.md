@@ -12,3 +12,6 @@ example username and password:
 - password: alexanderjpass
 
 (or see https://dummyjson.com/users)
+
+# Live demo:
+# https://alert-rub.surge.sh/
